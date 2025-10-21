@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Network } from "lucide-react";
-import logo from "@/assets/iisl-logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
@@ -25,17 +24,8 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto px-4 py-20">
+      <div className="container relative z-10 mx-auto px-4 py-20 mt-16">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          {/* Logo */}
-          <div className="flex justify-center mb-8 animate-in fade-in slide-in-from-top duration-700">
-            <img 
-              src={logo} 
-              alt="IISL Logo" 
-              className="h-24 w-24 drop-shadow-2xl"
-            />
-          </div>
-
           {/* Company name */}
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight animate-in fade-in slide-in-from-bottom duration-700 delay-100">
             Inclusive Information Services Limited
