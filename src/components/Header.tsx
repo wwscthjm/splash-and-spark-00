@@ -7,8 +7,32 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown, Menu } from "lucide-react";
 import logo from "@/assets/iisl-logo.png";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
 const Header = () => {
+  const { data: partners, isLoading } = useQuery({
+    queryKey: ['partners'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('partners')
+        .select('*')
+        .order('category', { ascending: true });
+      
+      if (error) throw error;
+      return data;
+    },
+  });
+
+  // Group partners by category
+  const partnersByCategory = partners?.reduce((acc, partner) => {
+    if (!acc[partner.category]) {
+      acc[partner.category] = [];
+    }
+    acc[partner.category].push(partner);
+    return acc;
+  }, {} as Record<string, typeof partners>);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4">
@@ -34,18 +58,25 @@ const Header = () => {
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-popover">
-                <DropdownMenuItem className="cursor-pointer">
-                  Technology Partners
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
-                  Service Providers
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
-                  Resellers
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
-                  Become a Partner
-                </DropdownMenuItem>
+                {isLoading ? (
+                  <DropdownMenuItem disabled>Loading...</DropdownMenuItem>
+                ) : partnersByCategory && Object.keys(partnersByCategory).length > 0 ? (
+                  <>
+                    {Object.entries(partnersByCategory).map(([category, categoryPartners]) => (
+                      categoryPartners.map((partner) => (
+                        <DropdownMenuItem 
+                          key={partner.id} 
+                          className="cursor-pointer"
+                          onClick={() => partner.website_url && window.open(partner.website_url, '_blank')}
+                        >
+                          {partner.name} - {category}
+                        </DropdownMenuItem>
+                      ))
+                    ))}
+                  </>
+                ) : (
+                  <DropdownMenuItem disabled>No partners available</DropdownMenuItem>
+                )}
               </DropdownMenuContent>
             </DropdownMenu>
 
