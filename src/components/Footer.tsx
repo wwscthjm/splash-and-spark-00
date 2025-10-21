@@ -1,5 +1,5 @@
 import logo from "@/assets/iisl-logo.png";
-import { Network, Mail, Phone, MapPin } from "lucide-react";
+import { Network, Mail, Phone, MapPin, Linkedin, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -42,20 +42,50 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h3 className="font-semibold text-foreground mb-4">Contact Us</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 mb-6">
               <li className="flex items-start gap-2 text-muted-foreground">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>contact@iisl.com</span>
+                <a href="mailto:contact@iisl.com" className="hover:text-primary transition-colors">
+                  contact@iisl.com
+                </a>
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
-                <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>+1 (555) 123-4567</span>
+                <MessageCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                <a href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  WhatsApp Support
+                </a>
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
-                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>123 Tech Street, Innovation City</span>
+                <Linkedin className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                <a href="https://linkedin.com/company/iisl" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  LinkedIn
+                </a>
               </li>
             </ul>
+            
+            <div className="space-y-2">
+              <div className="flex items-start gap-2 text-muted-foreground text-sm">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">China Office</p>
+                  <p>Beijing, China</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-2 text-muted-foreground text-sm">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">India Office</p>
+                  <p>Mumbai & Delhi, India</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-2 text-muted-foreground text-sm">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">EU Office</p>
+                  <p>Amsterdam, Netherlands</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

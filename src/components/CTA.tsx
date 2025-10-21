@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const CTA = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent opacity-95" />
       
@@ -17,11 +17,10 @@ const CTA = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Connect Your Devices?
+            Let's Connect Your IoT Ecosystem
           </h2>
           <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-            Join hundreds of businesses leveraging our IoT M2M solutions. 
-            Get started today with a free consultation.
+            Start your global IoT deployment with IISL. Contact us for a personalized consultation.
           </p>
 
           {/* Contact form */}

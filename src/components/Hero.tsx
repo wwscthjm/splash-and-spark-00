@@ -1,10 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Network } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Network, Zap, Globe, ChevronDown, Rocket } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about');
+    aboutSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background image with overlay */}
       <div 
         className="absolute inset-0 z-0"
@@ -26,14 +32,24 @@ const Hero = () => {
       {/* Content */}
       <div className="container relative z-10 mx-auto px-4 py-20 mt-16">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          {/* Company name */}
+          {/* Company Name Badge */}
+          <div className="mb-6 animate-fade-in">
+            <Badge variant="outline" className="px-6 py-2 text-lg bg-white/10 border-white/20 text-white">
+              <Network className="w-5 h-5 mr-2" />
+              IISL - Inclusive Information Services Limited
+            </Badge>
+          </div>
+
+          {/* Hero Tagline */}
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight animate-in fade-in slide-in-from-bottom duration-700 delay-100">
-            Inclusive Information Services Limited
+            Global IoT & M2M Connectivity,
+            <br />
+            Engineered Locally
           </h1>
 
-          {/* Tagline */}
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom duration-700 delay-200">
-            Empowering seamless IoT M2M connectivity for the future of intelligent systems
+          {/* Description */}
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom duration-700 delay-200">
+            Powering millions of IoT devices across China, India, EU, USA, and Singapore with carrier-grade reliability
           </p>
 
           {/* Features badges */}
@@ -56,13 +72,14 @@ const Hero = () => {
               size="lg"
               className="bg-white text-primary hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300 text-lg px-8"
             >
+              <Rocket className="w-5 h-5 mr-2" />
               Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button 
               size="lg"
               variant="outline"
               className="border-2 border-white text-white hover:bg-white hover:text-primary transition-all duration-300 text-lg px-8"
+              onClick={scrollToAbout}
             >
               Learn More
             </Button>

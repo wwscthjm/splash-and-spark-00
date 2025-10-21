@@ -105,11 +105,14 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <a href="#services" className="text-foreground hover:text-primary transition-colors">
-              Services
-            </a>
             <a href="#about" className="text-foreground hover:text-primary transition-colors">
               About
+            </a>
+            <a href="#products" className="text-foreground hover:text-primary transition-colors">
+              Products
+            </a>
+            <a href="#case-studies" className="text-foreground hover:text-primary transition-colors">
+              Case Studies
             </a>
             <a href="#contact" className="text-foreground hover:text-primary transition-colors">
               Contact
