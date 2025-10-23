@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Network, Zap, Globe, ChevronDown, Rocket } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');
     aboutSection?.scrollIntoView({ behavior: 'smooth' });
@@ -36,33 +39,33 @@ const Hero = () => {
           <div className="mb-6 animate-fade-in">
             <Badge variant="outline" className="px-6 py-2 text-lg bg-white/10 border-white/20 text-white">
               <Network className="w-5 h-5 mr-2" />
-              IISL - Inclusive Information Services Limited
+              {t('hero.companyName')}
             </Badge>
           </div>
 
           {/* Hero Tagline */}
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight animate-in fade-in slide-in-from-bottom duration-700 delay-100">
-            Global IoT & M2M Connectivity,
+            {t('hero.title1')}
             <br />
-            Engineered Locally
+            {t('hero.title2')}
           </h1>
 
           {/* Description */}
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom duration-700 delay-200">
-            Powering millions of IoT devices across China, India, EU, USA, and Singapore with carrier-grade reliability
+            {t('hero.description')}
           </p>
 
           {/* Features badges */}
           <div className="flex flex-wrap justify-center gap-4 pt-4 animate-in fade-in slide-in-from-bottom duration-700 delay-300">
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-2 text-white">
               <Network className="inline-block w-4 h-4 mr-2" />
-              IoT Solutions
+              {t('hero.iotSolutions')}
             </div>
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-2 text-white">
-              M2M Connectivity
+              {t('hero.m2mConnectivity')}
             </div>
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-2 text-white">
-              24/7 Support
+              {t('hero.support')}
             </div>
           </div>
 
@@ -73,7 +76,7 @@ const Hero = () => {
               className="bg-white text-primary hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300 text-lg px-8"
             >
               <Rocket className="w-5 h-5 mr-2" />
-              Get Started
+              {t('hero.getStarted')}
             </Button>
             <Button 
               size="lg"
@@ -81,7 +84,7 @@ const Hero = () => {
               className="border-2 border-white text-white hover:bg-white hover:text-primary transition-all duration-300 text-lg px-8"
               onClick={scrollToAbout}
             >
-              Learn More
+              {t('hero.learnMore')}
             </Button>
           </div>
         </div>

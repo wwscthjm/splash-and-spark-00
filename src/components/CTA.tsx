@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CTA = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background gradient */}
@@ -17,10 +20,10 @@ const CTA = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Let's Connect Your IoT Ecosystem
+            {t('cta.title')}
           </h2>
           <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-            Start your global IoT deployment with IISL. Contact us for a personalized consultation.
+            {t('cta.description')}
           </p>
 
           {/* Contact form */}
@@ -28,24 +31,24 @@ const CTA = () => {
             <form className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <Input 
-                  placeholder="Your Name"
+                  placeholder={t('cta.namePlaceholder')}
                   className="bg-white/90 border-white/50 text-foreground placeholder:text-muted-foreground"
                 />
                 <Input 
                   type="email"
-                  placeholder="Email Address"
+                  placeholder={t('cta.emailPlaceholder')}
                   className="bg-white/90 border-white/50 text-foreground placeholder:text-muted-foreground"
                 />
               </div>
               <Input 
-                placeholder="Company Name"
+                placeholder={t('cta.companyPlaceholder')}
                 className="bg-white/90 border-white/50 text-foreground placeholder:text-muted-foreground"
               />
               <Button 
                 size="lg"
                 className="w-full bg-white text-primary hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300 text-lg"
               >
-                Request a Consultation
+                {t('cta.submitButton')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </form>
@@ -53,9 +56,9 @@ const CTA = () => {
 
           {/* Contact info */}
           <div className="mt-12 text-white/80">
-            <p>Or reach us directly at:</p>
+            <p>{t('cta.reachUs')}</p>
             <p className="text-xl font-semibold text-white mt-2">
-              contact@iisl.com | +1 (555) 123-4567
+              {t('cta.contactInfo')}
             </p>
           </div>
         </div>

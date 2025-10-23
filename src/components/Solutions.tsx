@@ -1,41 +1,43 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Smartphone, Shield, MessageSquare, FileCheck, Database } from "lucide-react";
-
-const solutions = [
-  {
-    icon: Smartphone,
-    title: "Global IoT SIM",
-    description: "Multi-IMSI, eUICC-enabled SIMs for seamless global roaming across 190+ countries",
-    benefit: "One SIM, worldwide connectivity"
-  },
-  {
-    icon: Shield,
-    title: "Private APN + VPN",
-    description: "Dedicated network tunnels with enterprise-grade security for sensitive IoT data",
-    benefit: "Bank-level security for your devices"
-  },
-  {
-    icon: MessageSquare,
-    title: "SMS & Voice for IoT",
-    description: "Two-way SMS and voice channels for device management and critical alerts",
-    benefit: "Real-time device communication"
-  },
-  {
-    icon: FileCheck,
-    title: "China Type-Approval & Whitelist",
-    description: "Full MIIT certification and network whitelist service for China market entry",
-    benefit: "Fast-track China market access"
-  },
-  {
-    icon: Database,
-    title: "India DLT Onboarding",
-    description: "Complete DLT registration bundle for TRAI-compliant promotional SMS campaigns",
-    benefit: "Launch SMS campaigns in 48 hours"
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Solutions = () => {
+  const { t } = useLanguage();
+  
+  const solutions = [
+    {
+      icon: Smartphone,
+      title: t('solutions.globalIotSim'),
+      description: t('solutions.globalIotSimDesc'),
+      benefit: t('solutions.globalIotSimBenefit')
+    },
+    {
+      icon: Shield,
+      title: t('solutions.privateApn'),
+      description: t('solutions.privateApnDesc'),
+      benefit: t('solutions.privateApnBenefit')
+    },
+    {
+      icon: MessageSquare,
+      title: t('solutions.smsVoice'),
+      description: t('solutions.smsVoiceDesc'),
+      benefit: t('solutions.smsVoiceBenefit')
+    },
+    {
+      icon: FileCheck,
+      title: t('solutions.chinaApproval'),
+      description: t('solutions.chinaApprovalDesc'),
+      benefit: t('solutions.chinaApprovalBenefit')
+    },
+    {
+      icon: Database,
+      title: t('solutions.indiaDlt'),
+      description: t('solutions.indiaDltDesc'),
+      benefit: t('solutions.indiaDltBenefit')
+    }
+  ];
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     contactSection?.scrollIntoView({ behavior: 'smooth' });
@@ -46,10 +48,10 @@ const Solutions = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Enterprise IoT Solutions
+            {t('solutions.title')}
           </h2>
           <p className="text-lg text-muted-foreground">
-            End-to-end connectivity solutions tailored for your IoT deployment needs
+            {t('solutions.subtitle')}
           </p>
         </div>
 
@@ -84,7 +86,7 @@ const Solutions = () => {
                     className="w-full"
                     onClick={scrollToContact}
                   >
-                    Learn More
+                    {t('solutions.learnMore')}
                   </Button>
                 </CardFooter>
               </Card>

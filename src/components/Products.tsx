@@ -3,70 +3,73 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, Zap } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const products = [
-  {
-    name: "Starter SIM Pack",
-    price: "$49",
-    period: "per SIM / 3 months",
-    features: [
-      "200 SMS included",
-      "500 MB data",
-      "3-month validity",
-      "5 countries coverage",
-      "Basic dashboard access"
-    ],
-    popular: false,
-    type: "prepaid"
-  },
-  {
-    name: "Volume Plans",
-    price: "Custom",
-    period: "based on volume",
-    features: [
-      "100K – 100M messages",
-      "Unlimited data options",
-      "12-month contracts",
-      "Global coverage",
-      "Priority support",
-      "Custom API integration"
-    ],
-    popular: true,
-    type: "both"
-  },
-  {
-    name: "OEM White-Label SIM",
-    price: "$0.50",
-    period: "per SIM (10K+ MOQ)",
-    features: [
-      "Custom eSIM profile",
-      "Laser-etched logo",
-      "Custom packaging",
-      "Dedicated APN",
-      "SLA guarantee"
-    ],
-    popular: false,
-    type: "postpaid"
-  },
-  {
-    name: "Management Portal",
-    price: "Included",
-    period: "with all plans",
-    features: [
-      "Real-time CDR access",
-      "RESTful API",
-      "Usage alerts",
-      "GDPR-compliant export",
-      "Multi-user access",
-      "Webhook integration"
-    ],
-    popular: false,
-    type: "both"
-  }
-];
 
 const Products = () => {
+  const { t } = useLanguage();
   const [billingType, setBillingType] = useState<"prepaid" | "postpaid">("prepaid");
+  
+  const products = [
+    {
+      name: t('products.starterPack'),
+      price: "$49",
+      period: t('products.perSim3Months'),
+      features: [
+        "200 SMS included",
+        "500 MB data",
+        "3-month validity",
+        "5 countries coverage",
+        "Basic dashboard access"
+      ],
+      popular: false,
+      type: "prepaid" as const
+    },
+    {
+      name: t('products.volumePlans'),
+      price: t('products.custom'),
+      period: t('products.basedOnVolume'),
+      features: [
+        "100K – 100M messages",
+        "Unlimited data options",
+        "12-month contracts",
+        "Global coverage",
+        "Priority support",
+        "Custom API integration"
+      ],
+      popular: true,
+      type: "both" as const
+    },
+    {
+      name: t('products.oemWhiteLabel'),
+      price: "$0.50",
+      period: t('products.perSimMoq'),
+      features: [
+        "Custom eSIM profile",
+        "Laser-etched logo",
+        "Custom packaging",
+        "Dedicated APN",
+        "SLA guarantee"
+      ],
+      popular: false,
+      type: "postpaid" as const
+    },
+    {
+      name: t('products.managementPortal'),
+      price: t('products.included'),
+      period: t('products.withAllPlans'),
+      features: [
+        "Real-time CDR access",
+        "RESTful API",
+        "Usage alerts",
+        "GDPR-compliant export",
+        "Multi-user access",
+        "Webhook integration"
+      ],
+      popular: false,
+      type: "both" as const
+    }
+  ];
 
   const filteredProducts = products.filter(
     product => product.type === "both" || product.type === billingType
@@ -77,10 +80,10 @@ const Products = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Flexible Pricing Plans
+            {t('products.title')}
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Choose the plan that fits your IoT deployment scale
+            {t('products.subtitle')}
           </p>
           
           {/* Billing Toggle */}
@@ -93,7 +96,7 @@ const Products = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Pre-paid
+              {t('products.prepaid')}
             </button>
             <button
               onClick={() => setBillingType("postpaid")}
@@ -103,7 +106,7 @@ const Products = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Post-paid
+              {t('products.postpaid')}
             </button>
           </div>
         </div>
@@ -122,7 +125,7 @@ const Products = () => {
                 <div className="absolute top-0 right-0">
                   <Badge className="rounded-tl-none rounded-br-none bg-gradient-to-r from-primary to-secondary">
                     <Zap className="w-3 h-3 mr-1" />
-                    Popular
+                    {t('products.popular')}
                   </Badge>
                 </div>
               )}
@@ -151,7 +154,7 @@ const Products = () => {
                   className="w-full"
                   variant={product.popular ? "default" : "outline"}
                 >
-                  Get Started
+                  {t('products.getStarted')}
                 </Button>
               </CardContent>
             </Card>
@@ -160,7 +163,7 @@ const Products = () => {
 
         <div className="text-center mt-12">
           <p className="text-muted-foreground">
-            Need a custom solution? <a href="#contact" className="text-primary hover:underline font-medium">Contact our sales team</a>
+            {t('products.customSolution')} <a href="#contact" className="text-primary hover:underline font-medium">{t('products.contactSales')}</a>
           </p>
         </div>
       </div>

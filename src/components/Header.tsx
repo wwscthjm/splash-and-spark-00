@@ -5,12 +5,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import { ChevronDown, Menu } from "lucide-react";
 import logo from "@/assets/iisl-logo.png";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
+  const { language, setLanguage, t } = useLanguage();
   const { data: partners, isLoading } = useQuery({
     queryKey: ['partners'],
     queryFn: async () => {
@@ -48,18 +52,18 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
             <a href="#home" className="text-foreground hover:text-primary transition-colors">
-              Home
+              {t('header.home')}
             </a>
 
             {/* Partners Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1 text-foreground hover:text-primary transition-colors">
-                Partners
+                {t('header.partners')}
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-popover">
                 {isLoading ? (
-                  <DropdownMenuItem disabled>Loading...</DropdownMenuItem>
+                  <DropdownMenuItem disabled>{t('header.loading')}</DropdownMenuItem>
                 ) : partnersByCategory && Object.keys(partnersByCategory).length > 0 ? (
                   <>
                     {Object.entries(partnersByCategory).map(([category, categoryPartners]) => (
@@ -75,7 +79,7 @@ const Header = () => {
                     ))}
                   </>
                 ) : (
-                  <DropdownMenuItem disabled>No partners available</DropdownMenuItem>
+                  <DropdownMenuItem disabled>{t('header.noPartners')}</DropdownMenuItem>
                 )}
               </DropdownMenuContent>
             </DropdownMenu>
@@ -83,46 +87,59 @@ const Header = () => {
             {/* Solutions Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1 text-foreground hover:text-primary transition-colors">
-                Solutions
+                {t('header.solutions')}
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-popover">
                 <DropdownMenuItem className="cursor-pointer">
-                  IoT Connectivity
+                  {t('header.iotConnectivity')}
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
-                  M2M Platform
+                  {t('header.m2mPlatform')}
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
-                  Device Management
+                  {t('header.deviceManagement')}
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
-                  Analytics & Insights
+                  {t('header.analytics')}
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
-                  Custom Solutions
+                  {t('header.customSolutions')}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
             <a href="#about" className="text-foreground hover:text-primary transition-colors">
-              About
+              {t('header.about')}
             </a>
             <a href="#products" className="text-foreground hover:text-primary transition-colors">
-              Products
+              {t('header.products')}
             </a>
             <a href="#case-studies" className="text-foreground hover:text-primary transition-colors">
-              Case Studies
+              {t('header.caseStudies')}
             </a>
             <a href="#contact" className="text-foreground hover:text-primary transition-colors">
-              Contact
+              {t('header.contact')}
             </a>
           </nav>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost">Login</Button>
-            <Button>Get Started</Button>
+          {/* Language Switch & CTA Buttons */}
+          <div className="hidden md:flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <Label htmlFor="language-switch" className="text-sm text-foreground">
+                EN
+              </Label>
+              <Switch
+                id="language-switch"
+                checked={language === 'zh'}
+                onCheckedChange={(checked) => setLanguage(checked ? 'zh' : 'en')}
+              />
+              <Label htmlFor="language-switch" className="text-sm text-foreground">
+                中文
+              </Label>
+            </div>
+            <Button variant="ghost">{t('header.login')}</Button>
+            <Button>{t('header.getStarted')}</Button>
           </div>
 
           {/* Mobile Menu Button */}

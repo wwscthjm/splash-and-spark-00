@@ -1,7 +1,10 @@
 import logo from "@/assets/iisl-logo.png";
 import { Network, Mail, Phone, MapPin, Linkedin, MessageCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
@@ -13,35 +16,35 @@ const Footer = () => {
               <span className="font-bold text-lg text-foreground">IISL</span>
             </div>
             <p className="text-muted-foreground">
-              Leading provider of IoT M2M connectivity solutions for businesses worldwide.
+              {t('footer.companyDesc')}
             </p>
           </div>
 
           {/* Quick links */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Services</h3>
+            <h3 className="font-semibold text-foreground mb-4">{t('footer.services')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">IoT Connectivity</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">M2M Solutions</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Network Security</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Data Management</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.iotConnectivity')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.m2mSolutions')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.networkSecurity')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.dataManagement')}</a></li>
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Company</h3>
+            <h3 className="font-semibold text-foreground mb-4">{t('footer.company')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Careers</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Partners</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.aboutUs')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.careers')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.partners')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.contact')}</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Contact Us</h3>
+            <h3 className="font-semibold text-foreground mb-4">{t('footer.contactUs')}</h3>
             <ul className="space-y-3 mb-6">
               <li className="flex items-start gap-2 text-muted-foreground">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
@@ -52,7 +55,7 @@ const Footer = () => {
               <li className="flex items-start gap-2 text-muted-foreground">
                 <MessageCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
                 <a href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                  WhatsApp Support
+                  {t('footer.whatsappSupport')}
                 </a>
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
@@ -67,22 +70,22 @@ const Footer = () => {
               <div className="flex items-start gap-2 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-foreground">China Office</p>
-                  <p>Beijing, China</p>
+                  <p className="font-medium text-foreground">{t('footer.chinaOffice')}</p>
+                  <p>{t('footer.chinaLocation')}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-foreground">India Office</p>
-                  <p>Mumbai & Delhi, India</p>
+                  <p className="font-medium text-foreground">{t('footer.indiaOffice')}</p>
+                  <p>{t('footer.indiaLocation')}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-foreground">EU Office</p>
-                  <p>Amsterdam, Netherlands</p>
+                  <p className="font-medium text-foreground">{t('footer.euOffice')}</p>
+                  <p>{t('footer.euLocation')}</p>
                 </div>
               </div>
             </div>
@@ -90,7 +93,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-12 pt-8 text-center text-muted-foreground">
-          <p>&copy; 2025 Inclusive Information Services Limited. All rights reserved.</p>
+          <p>{t('footer.copyright')}</p>
         </div>
       </div>
     </footer>
