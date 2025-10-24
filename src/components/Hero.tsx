@@ -69,15 +69,8 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 animate-in fade-in slide-in-from-bottom duration-700 delay-400">
-            <Button 
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300 text-lg px-8"
-            >
-              <Rocket className="w-5 h-5 mr-2" />
-              {t('hero.getStarted')}
-            </Button>
+          {/* CTA Button */}
+          <div className="flex justify-center pt-8 animate-in fade-in slide-in-from-bottom duration-700 delay-400">
             <Button 
               size="lg"
               variant="outline"
