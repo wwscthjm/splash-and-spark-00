@@ -69,25 +69,17 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
-          <div className="flex justify-center pt-8 animate-in fade-in slide-in-from-bottom duration-700 delay-400">
-            <Button 
-              size="lg"
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary transition-all duration-300 text-lg px-8"
-              onClick={scrollToAbout}
-            >
-              {t('hero.learnMore')}
-            </Button>
-          </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse" />
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+        <div className="animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse" />
+          </div>
         </div>
+        <p className="text-white/70 text-sm font-medium">{t('hero.scrollDown')}</p>
       </div>
     </section>
   );

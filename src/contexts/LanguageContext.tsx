@@ -72,8 +72,7 @@ const enTranslations = {
     iotSolutions: 'IoT Solutions',
     m2mConnectivity: 'M2M Connectivity',
     support: '24/7 Support',
-    getStarted: 'Get Started',
-    learnMore: 'Learn More',
+    scrollDown: 'Scroll Down',
   },
   about: {
     title: 'Global IoT & M2M Connectivity, Engineered Locally',
@@ -211,8 +210,7 @@ const zhTranslations = {
     iotSolutions: '物联网解决方案',
     m2mConnectivity: 'M2M连接',
     support: '24/7支持',
-    getStarted: '开始使用',
-    learnMore: '了解更多',
+    scrollDown: '向下滚动',
   },
   about: {
     title: '全球物联网与M2M连接，本地化工程',
