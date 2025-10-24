@@ -112,9 +112,6 @@ const Header = () => {
             <a href="#about" className="text-foreground hover:text-primary transition-colors">
               {t('header.about')}
             </a>
-            <a href="#products" className="text-foreground hover:text-primary transition-colors">
-              {t('header.products')}
-            </a>
             <a href="#case-studies" className="text-foreground hover:text-primary transition-colors">
               {t('header.caseStudies')}
             </a>
@@ -123,23 +120,19 @@ const Header = () => {
             </a>
           </nav>
 
-          {/* Language Switch & CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <Label htmlFor="language-switch" className="text-sm text-foreground">
-                EN
-              </Label>
-              <Switch
-                id="language-switch"
-                checked={language === 'zh'}
-                onCheckedChange={(checked) => setLanguage(checked ? 'zh' : 'en')}
-              />
-              <Label htmlFor="language-switch" className="text-sm text-foreground">
-                中文
-              </Label>
-            </div>
-            <Button variant="ghost">{t('header.login')}</Button>
-            <Button>{t('header.getStarted')}</Button>
+          {/* Language Switch */}
+          <div className="hidden md:flex items-center gap-2">
+            <Label htmlFor="language-switch" className="text-sm text-foreground">
+              EN
+            </Label>
+            <Switch
+              id="language-switch"
+              checked={language === 'zh'}
+              onCheckedChange={(checked) => setLanguage(checked ? 'zh' : 'en')}
+            />
+            <Label htmlFor="language-switch" className="text-sm text-foreground">
+              中文
+            </Label>
           </div>
 
           {/* Mobile Menu Button */}
