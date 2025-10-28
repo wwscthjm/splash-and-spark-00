@@ -81,13 +81,6 @@ const Footer = () => {
                   <p>{t('footer.indiaLocation')}</p>
                 </div>
               </div>
-              <div className="flex items-start gap-2 text-muted-foreground text-sm">
-                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-foreground">{t('footer.euOffice')}</p>
-                  <p>{t('footer.euLocation')}</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
