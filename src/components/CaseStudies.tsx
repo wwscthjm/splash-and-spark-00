@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Car, Gauge, CreditCard, Heart, Bike } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const caseStudies = [
   {
@@ -11,7 +12,8 @@ const caseStudies = [
     metric: "1.2M SIMs • 28 Countries",
     description: "Real-time vehicle diagnostics and fleet management across Europe and Asia",
     highlight: "99.95% uptime",
-    color: "from-blue-500 to-cyan-500"
+    color: "from-blue-500 to-cyan-500",
+    link: "/case-study/ev-telematics"
   },
   {
     icon: Gauge,
@@ -20,7 +22,8 @@ const caseStudies = [
     metric: "800K NB-IoT SIMs • 10-year battery",
     description: "Low-power metering solution with extended device lifecycle",
     highlight: "50% cost reduction",
-    color: "from-green-500 to-emerald-500"
+    color: "from-green-500 to-emerald-500",
+    link: "/case-study/smart-meter"
   },
   {
     icon: CreditCard,
@@ -29,7 +32,8 @@ const caseStudies = [
     metric: "PCI-DSS • Private APN • <2s auth",
     description: "Secure payment processing with ultra-low latency connectivity",
     highlight: "100% compliance",
-    color: "from-purple-500 to-pink-500"
+    color: "from-purple-500 to-pink-500",
+    link: "/case-study/pos-terminal"
   },
   {
     icon: Heart,
@@ -38,7 +42,8 @@ const caseStudies = [
     metric: "FDA + MIIT dual approval",
     description: "Remote patient monitoring across US and China markets",
     highlight: "Regulatory cleared",
-    color: "from-red-500 to-orange-500"
+    color: "from-red-500 to-orange-500",
+    link: "/case-study/medical-device"
   },
   {
     icon: Bike,
@@ -47,7 +52,8 @@ const caseStudies = [
     metric: "30M messages/month",
     description: "India DLT promotional SMS for bike-sharing platform",
     highlight: "48hr deployment",
-    color: "from-indigo-500 to-blue-500"
+    color: "from-indigo-500 to-blue-500",
+    link: "/case-study/shared-mobility"
   }
 ];
 
@@ -104,14 +110,16 @@ const CaseStudies = () => {
                         {study.highlight}
                       </span>
                     </div>
-                    <Button 
-                      variant="ghost" 
-                      size="sm"
-                      className="text-primary hover:text-primary group-hover:translate-x-1 transition-transform"
-                    >
-                      Read Story
-                      <ArrowRight className="w-4 h-4 ml-1" />
-                    </Button>
+                    <Link to={study.link}>
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        className="text-primary hover:text-primary group-hover:translate-x-1 transition-transform"
+                      >
+                        Read Story
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
