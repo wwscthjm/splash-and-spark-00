@@ -55,23 +55,11 @@ const CTA = () => {
           </div>
 
           {/* Contact info */}
-          <div className="mt-12 text-white/80 space-y-6">
-            <div>
-              <p>{t('cta.reachUs')}</p>
-              <p className="text-xl font-semibold text-white mt-2">
-                {t('cta.contactInfo')}
-              </p>
-            </div>
-            
-            {/* WeChat QR Code */}
-            <div className="flex flex-col items-center gap-3">
-              <p className="text-lg font-semibold text-white">{t('cta.wechatConnect')}</p>
-              <div className="bg-white p-4 rounded-lg">
-                <div className="w-48 h-48 bg-gray-100 flex items-center justify-center">
-                  <p className="text-gray-500 text-sm text-center px-4">{t('cta.scanQr')}</p>
-                </div>
-              </div>
-            </div>
+          <div className="mt-12 text-white/80">
+            <p>{t('cta.reachUs')}</p>
+            <p className="text-xl font-semibold text-white mt-2">
+              {t('cta.contactInfo')}
+            </p>
           </div>
         </div>
       </div>

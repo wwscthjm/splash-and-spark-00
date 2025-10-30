@@ -116,9 +116,7 @@ const enTranslations = {
     companyPlaceholder: 'Company Name',
     submitButton: 'Request a Consultation',
     reachUs: 'Or reach us directly at:',
-    contactInfo: 'contact@iisl.com',
-    wechatConnect: 'Connect with us on WeChat',
-    scanQr: 'Scan QR Code',
+    contactInfo: 'contact@iisl.com | +86 123 4567 8901',
   },
   solutions: {
     title: 'Enterprise IoT Solutions',
@@ -256,9 +254,7 @@ const zhTranslations = {
     companyPlaceholder: '公司名称',
     submitButton: '请求咨询',
     reachUs: '或直接联系我们：',
-    contactInfo: 'contact@iisl.com',
-    wechatConnect: '通过微信联系我们',
-    scanQr: '扫描二维码',
+    contactInfo: 'contact@iisl.com | +86 123 4567 8901',
   },
   solutions: {
     title: '企业物联网解决方案',
