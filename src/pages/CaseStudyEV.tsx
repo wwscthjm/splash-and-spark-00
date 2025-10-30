@@ -5,9 +5,11 @@ import { ArrowLeft, Car, MapPin, TrendingUp, Shield } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CaseStudyEV = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-background">
@@ -22,7 +24,7 @@ const CaseStudyEV = () => {
             className="mb-8"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
+            {t('caseStudy.backToHome')}
           </Button>
 
           {/* Hero Section */}
@@ -32,15 +34,15 @@ const CaseStudyEV = () => {
                 <Car className="w-8 h-8 text-white" />
               </div>
               <div>
-                <Badge className="mb-2">Automotive</Badge>
+                <Badge className="mb-2">{t('caseStudy.ev.badge')}</Badge>
                 <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                  EV Telematics Success Story
+                  {t('caseStudy.ev.title')}
                 </h1>
               </div>
             </div>
 
             <p className="text-xl text-muted-foreground mb-12">
-              Real-time vehicle diagnostics and fleet management across Europe and Asia
+              {t('caseStudy.ev.subtitle')}
             </p>
 
             {/* Key Metrics */}
@@ -48,33 +50,33 @@ const CaseStudyEV = () => {
               <Card>
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl font-bold text-primary mb-2">1.2M</div>
-                  <div className="text-muted-foreground">Active SIMs</div>
+                  <div className="text-muted-foreground">{t('caseStudy.ev.metric1')}</div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl font-bold text-primary mb-2">28</div>
-                  <div className="text-muted-foreground">Countries</div>
+                  <div className="text-muted-foreground">{t('caseStudy.ev.metric2')}</div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl font-bold text-primary mb-2">99.95%</div>
-                  <div className="text-muted-foreground">Uptime</div>
+                  <div className="text-muted-foreground">{t('caseStudy.ev.metric3')}</div>
                 </CardContent>
               </Card>
             </div>
 
             {/* Challenge */}
             <section className="mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-6">The Challenge</h2>
+              <h2 className="text-3xl font-bold text-foreground mb-6">{t('caseStudy.theChallenge')}</h2>
               <Card>
                 <CardContent className="p-8">
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    A leading electric vehicle manufacturer needed a reliable, scalable IoT connectivity solution to support their rapidly expanding fleet across Europe and Asia. Their existing connectivity infrastructure was fragmented across multiple carriers, leading to coverage gaps, inconsistent performance, and complex billing.
+                    {t('caseStudy.ev.challengeText1')}
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    The company required real-time vehicle diagnostics, over-the-air updates, and fleet management capabilities across 28 countries, with seamless roaming and carrier-grade reliability.
+                    {t('caseStudy.ev.challengeText2')}
                   </p>
                 </CardContent>
               </Card>
@@ -82,7 +84,7 @@ const CaseStudyEV = () => {
 
             {/* Solution */}
             <section className="mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-6">Our Solution</h2>
+              <h2 className="text-3xl font-bold text-foreground mb-6">{t('caseStudy.ourSolution')}</h2>
               <div className="space-y-6">
                 <Card>
                   <CardContent className="p-8">
@@ -92,10 +94,10 @@ const CaseStudyEV = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold text-foreground mb-2">
-                          Global Multi-IMSI SIM Cards
+                          {t('caseStudy.ev.solution1Title')}
                         </h3>
                         <p className="text-muted-foreground leading-relaxed">
-                          Deployed eUICC-enabled SIM cards with multiple carrier profiles, enabling automatic network switching for optimal coverage and cost efficiency across all operating regions.
+                          {t('caseStudy.ev.solution1Desc')}
                         </p>
                       </div>
                     </div>
@@ -110,10 +112,10 @@ const CaseStudyEV = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold text-foreground mb-2">
-                          Private APN & VPN Security
+                          {t('caseStudy.ev.solution2Title')}
                         </h3>
                         <p className="text-muted-foreground leading-relaxed">
-                          Implemented enterprise-grade security with dedicated private APN and VPN tunnels to protect sensitive vehicle data and ensure secure over-the-air updates.
+                          {t('caseStudy.ev.solution2Desc')}
                         </p>
                       </div>
                     </div>
@@ -128,10 +130,10 @@ const CaseStudyEV = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold text-foreground mb-2">
-                          Real-Time Management Portal
+                          {t('caseStudy.ev.solution3Title')}
                         </h3>
                         <p className="text-muted-foreground leading-relaxed">
-                          Provided comprehensive connectivity management platform with real-time diagnostics, usage analytics, and automated alerting for proactive issue resolution.
+                          {t('caseStudy.ev.solution3Desc')}
                         </p>
                       </div>
                     </div>
@@ -142,7 +144,7 @@ const CaseStudyEV = () => {
 
             {/* Results */}
             <section className="mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-6">Results</h2>
+              <h2 className="text-3xl font-bold text-foreground mb-6">{t('caseStudy.results')}</h2>
               <Card className="bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
                 <CardContent className="p-8">
                   <ul className="space-y-4">
@@ -151,7 +153,7 @@ const CaseStudyEV = () => {
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <p className="text-foreground">
-                        <span className="font-semibold">99.95% uptime</span> across all markets, exceeding SLA requirements
+                        {t('caseStudy.ev.result1')}
                       </p>
                     </li>
                     <li className="flex items-start gap-3">
@@ -159,7 +161,7 @@ const CaseStudyEV = () => {
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <p className="text-foreground">
-                        <span className="font-semibold">40% reduction</span> in connectivity costs through optimized carrier selection
+                        {t('caseStudy.ev.result2')}
                       </p>
                     </li>
                     <li className="flex items-start gap-3">
@@ -167,7 +169,7 @@ const CaseStudyEV = () => {
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <p className="text-foreground">
-                        <span className="font-semibold">Seamless expansion</span> to 1.2M vehicles without infrastructure changes
+                        {t('caseStudy.ev.result3')}
                       </p>
                     </li>
                     <li className="flex items-start gap-3">
@@ -175,7 +177,7 @@ const CaseStudyEV = () => {
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <p className="text-foreground">
-                        <span className="font-semibold">Real-time diagnostics</span> enabling predictive maintenance and reduced downtime
+                        {t('caseStudy.ev.result4')}
                       </p>
                     </li>
                   </ul>
@@ -187,10 +189,10 @@ const CaseStudyEV = () => {
             <Card className="bg-gradient-to-br from-primary to-primary/80 border-0">
               <CardContent className="p-8 text-center">
                 <h3 className="text-2xl font-bold text-white mb-4">
-                  Ready to Scale Your IoT Fleet?
+                  {t('caseStudy.ev.ctaTitle')}
                 </h3>
                 <p className="text-white/90 mb-6">
-                  Let's discuss how IISL can power your connected vehicle solution
+                  {t('caseStudy.ev.ctaDesc')}
                 </p>
                 <Button 
                   size="lg"
@@ -198,7 +200,7 @@ const CaseStudyEV = () => {
                   onClick={() => navigate('/#contact')}
                   className="bg-white text-primary hover:bg-white/90"
                 >
-                  Contact Us
+                  {t('caseStudy.contactUs')}
                 </Button>
               </CardContent>
             </Card>
