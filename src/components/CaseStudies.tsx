@@ -133,7 +133,7 @@ const CaseStudies = () => {
             Trusted by Industry Leaders
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {["AWS", "Microsoft", "Cisco", "Juniper", "Airtel", "Jio"].map((logo, index) => (
+            {["AWS", "Airtel"].map((logo, index) => (
               <div 
                 key={index}
                 className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors"
