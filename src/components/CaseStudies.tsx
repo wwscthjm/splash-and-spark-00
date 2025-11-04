@@ -4,6 +4,17 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Car, Gauge, CreditCard, Heart, Bike } from "lucide-react";
 import { Link } from "react-router-dom";
 
+const logoLinks: Record<string, string> = {
+  "AWS": "https://aws.amazon.com",
+  "Airtel": "https://www.airtel.in",
+  "Tele2": "https://www.tele2.com",
+  "TATA": "https://www.tata.com",
+  "ZEEKR": "https://www.zeekrlife.com",
+  "LEAPMOTOR": "https://www.leapmotor.com",
+  "YUTONG": "https://en.yutong.com",
+  "SMART": "https://www.smart.com"
+};
+
 const caseStudies = [
   {
     icon: Car,
@@ -135,21 +146,27 @@ const CaseStudies = () => {
           <div className="relative flex overflow-hidden">
             <div className="flex animate-scroll-left gap-16 whitespace-nowrap">
               {["AWS", "Airtel", "Tele2", "TATA", "ZEEKR", "LEAPMOTOR", "YUTONG", "SMART"].map((logo, index) => (
-                <div 
+                <a
                   key={index}
-                  className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors opacity-60 hover:opacity-100"
+                  href={logoLinks[logo]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors opacity-60 hover:opacity-100 cursor-pointer"
                 >
                   {logo}
-                </div>
+                </a>
               ))}
               {/* Duplicate for seamless loop */}
               {["AWS", "Airtel", "Tele2", "TATA", "ZEEKR", "LEAPMOTOR", "YUTONG", "SMART"].map((logo, index) => (
-                <div 
+                <a
                   key={`dup-${index}`}
-                  className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors opacity-60 hover:opacity-100"
+                  href={logoLinks[logo]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors opacity-60 hover:opacity-100 cursor-pointer"
                 >
                   {logo}
-                </div>
+                </a>
               ))}
             </div>
           </div>
