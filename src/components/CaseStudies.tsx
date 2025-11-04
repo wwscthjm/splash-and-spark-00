@@ -128,19 +128,30 @@ const CaseStudies = () => {
         </div>
 
         {/* Customer Logos Section */}
-        <div className="text-center">
+        <div className="text-center overflow-hidden">
           <h3 className="text-2xl font-bold text-foreground mb-8">
             Trusted by Industry Leaders
           </h3>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {["AWS", "Airtel", "Tele2", "TATA", "ZEEKR", "LEAPMOTOR", "YUTONG", "SMART"].map((logo, index) => (
-              <div 
-                key={index}
-                className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {logo}
-              </div>
-            ))}
+          <div className="relative flex overflow-hidden">
+            <div className="flex animate-scroll-left gap-16 whitespace-nowrap">
+              {["AWS", "Airtel", "Tele2", "TATA", "ZEEKR", "LEAPMOTOR", "YUTONG", "SMART"].map((logo, index) => (
+                <div 
+                  key={index}
+                  className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors opacity-60 hover:opacity-100"
+                >
+                  {logo}
+                </div>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {["AWS", "Airtel", "Tele2", "TATA", "ZEEKR", "LEAPMOTOR", "YUTONG", "SMART"].map((logo, index) => (
+                <div 
+                  key={`dup-${index}`}
+                  className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors opacity-60 hover:opacity-100"
+                >
+                  {logo}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
