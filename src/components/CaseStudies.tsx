@@ -143,8 +143,8 @@ const CaseStudies = () => {
           <h3 className="text-2xl font-bold text-foreground mb-8">
             Trusted by Industry Leaders
           </h3>
-          <div className="relative flex overflow-hidden">
-            <div className="flex animate-scroll-left gap-16 whitespace-nowrap">
+          <div className="relative flex overflow-hidden group">
+            <div className="flex animate-scroll-left group-hover:[animation-play-state:paused] gap-16 whitespace-nowrap">
               {["AWS", "Airtel", "Tele2", "TATA", "ZEEKR", "LEAPMOTOR", "YUTONG", "SMART"].map((logo, index) => (
                 <a
                   key={index}
