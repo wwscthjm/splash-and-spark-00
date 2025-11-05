@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Car, Gauge, CreditCard, Heart, Bike } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const logoLinks: Record<string, string> = {
   "AWS": "https://aws.amazon.com",
@@ -69,6 +70,8 @@ const caseStudies = [
 ];
 
 const CaseStudies = () => {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
     <section id="case-studies" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -143,8 +146,17 @@ const CaseStudies = () => {
           <h3 className="text-2xl font-bold text-foreground mb-8">
             Trusted by Industry Leaders
           </h3>
-          <div className="relative flex overflow-hidden group">
-            <div className="flex animate-scroll-left group-hover:[animation-play-state:paused] gap-16 whitespace-nowrap">
+          <div 
+            className="relative flex overflow-hidden"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+          >
+            <div 
+              className="flex animate-scroll-left gap-16 whitespace-nowrap"
+              style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
+            >
               {["AWS", "Airtel", "Tele2", "TATA", "ZEEKR", "LEAPMOTOR", "YUTONG", "SMART"].map((logo, index) => (
                 <a
                   key={index}
