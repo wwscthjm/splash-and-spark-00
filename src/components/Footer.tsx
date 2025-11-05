@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img src={logo} alt="IISL Logo" className="h-12 w-12" />
-              <span className="font-bold text-lg text-foreground">IISL</span>
+              <span className="font-bold text-lg text-foreground">ISL</span>
             </div>
             <p className="text-muted-foreground">
               {t('footer.companyDesc')}
@@ -48,8 +48,8 @@ const Footer = () => {
             <ul className="space-y-3 mb-6">
               <li className="flex items-start gap-2 text-muted-foreground">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <a href="mailto:contact@iisl.com" className="hover:text-primary transition-colors">
-                  contact@iisl.com
+                <a href="mailto:INCLUSIVE-SALES@inclusive.com.cn" className="hover:text-primary transition-colors">
+                    INCLUSIVE-SALES@inclusive.com.cn
                 </a>
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
@@ -60,7 +60,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
                 <Linkedin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <a href="https://linkedin.com/company/iisl" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                <a href="https://linkedin.com/company/isl" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                   LinkedIn
                 </a>
               </li>
@@ -74,13 +74,13 @@ const Footer = () => {
                   <p>{t('footer.chinaLocation')}</p>
                 </div>
               </div>
-              <div className="flex items-start gap-2 text-muted-foreground text-sm">
-                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-foreground">{t('footer.indiaOffice')}</p>
-                  <p>{t('footer.indiaLocation')}</p>
-                </div>
-              </div>
+              {/*<div className="flex items-start gap-2 text-muted-foreground text-sm">*/}
+              {/*  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />*/}
+              {/*  <div>*/}
+              {/*    <p className="font-medium text-foreground">{t('footer.indiaOffice')}</p>*/}
+              {/*    <p>{t('footer.indiaLocation')}</p>*/}
+              {/*  </div>*/}
+              {/*</div>*/}
             </div>
           </div>
         </div>

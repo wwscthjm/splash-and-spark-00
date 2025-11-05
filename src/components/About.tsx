@@ -124,22 +124,22 @@ const About = () => {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-16">
-          <Card className="max-w-2xl mx-auto border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                {t('about.ctaTitle')}
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                {t('about.ctaDesc')}
-              </p>
-              <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90">
-                {t('about.bookCall')}
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
+        {/*/!* CTA *!/*/}
+        {/*<div className="text-center mt-16">*/}
+        {/*  <Card className="max-w-2xl mx-auto border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5">*/}
+        {/*    <CardContent className="p-8">*/}
+        {/*      <h3 className="text-2xl font-bold text-foreground mb-4">*/}
+        {/*        {t('about.ctaTitle')}*/}
+        {/*      </h3>*/}
+        {/*      <p className="text-muted-foreground mb-6">*/}
+        {/*        {t('about.ctaDesc')}*/}
+        {/*      </p>*/}
+        {/*      <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90">*/}
+        {/*        {t('about.bookCall')}*/}
+        {/*      </Button>*/}
+        {/*    </CardContent>*/}
+        {/*  </Card>*/}
+        {/*</div>*/}
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ const WhyChooseUs = () => {
             {/* Left side - Text content */}
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Why Choose IISL?
+                Why Choose ISL?
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 With years of expertise in IoT and M2M connectivity, we deliver reliable, 
