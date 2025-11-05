@@ -5,6 +5,7 @@ import Solutions from "@/components/Solutions";
 import CaseStudies from "@/components/CaseStudies";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import InclusivaChatBot from "@/components/InclusivaChatBot";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <CaseStudies />
       <CTA />
       <Footer />
+      <InclusivaChatBot />
     </div>
   );
 };
