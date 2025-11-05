@@ -4,73 +4,73 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Car, Gauge, CreditCard, Heart, Bike } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const logoLinks: Record<string, string> = {
   "AWS": "https://aws.amazon.com",
   "Airtel": "https://www.airtel.in",
   "Tele2": "https://www.tele2.com",
-  "TATA": "https://www.tata.com",
+  "TATA": "https://www.tatacommunications.com",
   "ZEEKR": "https://www.zeekrlife.com",
   "LEAPMOTOR": "https://www.leapmotor.com",
   "YUTONG": "https://en.yutong.com",
   "SMART": "https://www.smart.com"
 };
 
-const caseStudies = [
-  {
-    icon: Car,
-    title: "EV Telematics",
-    industry: "Automotive",
-    metric: "1.2M SIMs • 28 Countries",
-    description: "Real-time vehicle diagnostics and fleet management across Europe and Asia",
-    highlight: "99.95% uptime",
-    color: "from-blue-500 to-cyan-500",
-    link: "/case-study/ev-telematics"
-  },
-  {
-    icon: Gauge,
-    title: "Smart Meter OEM",
-    industry: "Energy",
-    metric: "800K NB-IoT SIMs • 10-year battery",
-    description: "Low-power metering solution with extended device lifecycle",
-    highlight: "50% cost reduction",
-    color: "from-green-500 to-emerald-500",
-    link: "/case-study/smart-meter"
-  },
-  {
-    icon: CreditCard,
-    title: "POS Terminal",
-    industry: "FinTech",
-    metric: "PCI-DSS • Private APN • <2s auth",
-    description: "Secure payment processing with ultra-low latency connectivity",
-    highlight: "100% compliance",
-    color: "from-purple-500 to-pink-500",
-    link: "/case-study/pos-terminal"
-  },
-  {
-    icon: Heart,
-    title: "Medical Device",
-    industry: "Healthcare",
-    metric: "FDA + MIIT dual approval",
-    description: "Remote patient monitoring across US and China markets",
-    highlight: "Regulatory cleared",
-    color: "from-red-500 to-orange-500",
-    link: "/case-study/medical-device"
-  },
-  {
-    icon: Bike,
-    title: "Shared Mobility",
-    industry: "Transportation",
-    metric: "30M messages/month",
-    description: "India DLT promotional SMS for bike-sharing platform",
-    highlight: "48hr deployment",
-    color: "from-indigo-500 to-blue-500",
-    link: "/case-study/shared-mobility"
-  }
-];
-
 const CaseStudies = () => {
   const [isPaused, setIsPaused] = useState(false);
+  const { t } = useLanguage();
+  const caseStudies = [
+      {
+          icon: Car,
+          title: t('caseStudy.ev.shortTitle'),
+          industry: t('caseStudy.ev.badge'),
+          metric: "1.2M SIMs • 28 Countries",
+          description: t('caseStudy.ev.subtitle'),
+          highlight: "99.95% uptime",
+          color: "from-blue-500 to-cyan-500",
+          link: "/case-study/ev-telematics"
+      },
+      {
+          icon: Gauge,
+          title: t('caseStudy.smartMeter.shortTitle'),
+          industry: t('caseStudy.smartMeter.badge'),
+          metric: "800K NB-IoT SIMs • 10-year battery",
+          description: t('caseStudy.smartMeter.subtitle'),
+          highlight: "50% cost reduction",
+          color: "from-green-500 to-emerald-500",
+          link: "/case-study/smart-meter"
+      },
+      {
+          icon: CreditCard,
+          title: t('caseStudy.pos.shortTitle'),
+          industry: t('caseStudy.pos.badge'),
+          metric: "PCI-DSS • Private APN • <2s auth",
+          description: t('caseStudy.pos.subtitle'),
+          highlight: "100% compliance",
+          color: "from-purple-500 to-pink-500",
+          link: "/case-study/pos-terminal"
+      },
+      {
+          icon: Heart,
+          title: t('caseStudy.medical.shortTitle'),
+          industry: t('caseStudy.medical.badge'),
+          metric: "FDA + MIIT dual approval",
+          description: t('caseStudy.medical.subtitle'),
+          highlight: "Regulatory cleared",
+          color: "from-red-500 to-orange-500",
+          link: "/case-study/medical-device"
+      },
+      {
+          icon: Bike,
+          title: t('caseStudy.mobility.shortTitle'),
+          industry: t('caseStudy.mobility.badge'),
+          metric: "30M messages/month",
+          description: t('caseStudy.mobility.subtitle'),
+          highlight: "48hr deployment",
+          color: "from-indigo-500 to-blue-500",
+          link: "/case-study/shared-mobility"
+      }];
 
   return (
     <section id="case-studies" className="py-24 bg-muted/30">
@@ -80,7 +80,7 @@ const CaseStudies = () => {
             Customer Success Stories
           </h2>
           <p className="text-lg text-muted-foreground">
-            See how leading companies trust IISL for their global IoT deployments
+            See how leading companies trust ISL for their global IoT deployments
           </p>
         </div>
 

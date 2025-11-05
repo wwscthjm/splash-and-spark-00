@@ -143,7 +143,7 @@ const InclusivaChatBot = () => {
           {/* Header */}
           <div className="p-4 border-b bg-primary text-primary-foreground rounded-t-lg">
             <h3 className="font-semibold text-lg">Inclusiva</h3>
-            <p className="text-sm opacity-90">Your IISL AI Assistant</p>
+            <p className="text-sm opacity-90">Your ISL AI Assistant</p>
           </div>
 
           {/* Messages */}
@@ -152,7 +152,7 @@ const InclusivaChatBot = () => {
               <div className="text-center text-muted-foreground py-8">
                 <MessageCircle className="h-12 w-12 mx-auto mb-3 opacity-50" />
                 <p className="text-sm">
-                  Hi! I'm Inclusiva. Ask me anything about IISL's IoT solutions!
+                  Hi! I'm Inclusiva. Ask me anything about ISL's IoT solutions!
                 </p>
               </div>
             )}

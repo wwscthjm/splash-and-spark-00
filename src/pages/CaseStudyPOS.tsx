@@ -87,7 +87,7 @@ const CaseStudyPOS = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold text-foreground mb-2">
-                          Private APN + VPN
+                          Private APN + VPN + InterCloud
                         </h3>
                         <p className="text-muted-foreground leading-relaxed">
                           Implemented dedicated private APN with encrypted VPN tunnels, creating an isolated network environment that meets PCI-DSS security requirements for cardholder data transmission.

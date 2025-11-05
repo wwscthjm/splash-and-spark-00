@@ -25,18 +25,18 @@ const Solutions = () => {
       description: t('solutions.smsVoiceDesc'),
       benefit: t('solutions.smsVoiceBenefit')
     },
-    {
-      icon: FileCheck,
-      title: t('solutions.chinaApproval'),
-      description: t('solutions.chinaApprovalDesc'),
-      benefit: t('solutions.chinaApprovalBenefit')
-    },
-    {
-      icon: Database,
-      title: t('solutions.indiaDlt'),
-      description: t('solutions.indiaDltDesc'),
-      benefit: t('solutions.indiaDltBenefit')
-    }
+    // {
+    //   icon: FileCheck,
+    //   title: t('solutions.chinaApproval'),
+    //   description: t('solutions.chinaApprovalDesc'),
+    //   benefit: t('solutions.chinaApprovalBenefit')
+    // },
+    // {
+    //   icon: Database,
+    //   title: t('solutions.indiaDlt'),
+    //   description: t('solutions.indiaDltDesc'),
+    //   benefit: t('solutions.indiaDltBenefit')
+    // }
   ];
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
