@@ -5,6 +5,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { ChevronDown, Menu } from "lucide-react";
@@ -12,9 +19,11 @@ import logo from "@/assets/iisl-logo.png";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState } from "react";
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { data: partners, isLoading } = useQuery({
     queryKey: ['partners'],
     queryFn: async () => {
@@ -135,10 +144,114 @@ const Header = () => {
             </Label>
           </div>
 
-          {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-5 w-5" />
-          </Button>
+          {/* Mobile Menu */}
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetHeader>
+                <SheetTitle className="text-left">{t('header.home')}</SheetTitle>
+              </SheetHeader>
+              <nav className="flex flex-col gap-4 mt-8">
+                <a 
+                  href="#home" 
+                  className="text-foreground hover:text-primary transition-colors py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t('header.home')}
+                </a>
+                
+                {/* Partners Section */}
+                <div className="py-2">
+                  <p className="font-semibold text-foreground mb-2">{t('header.partners')}</p>
+                  <div className="flex flex-col gap-2 pl-4">
+                    {isLoading ? (
+                      <span className="text-sm text-muted-foreground">{t('header.loading')}</span>
+                    ) : partnersByCategory && Object.keys(partnersByCategory).length > 0 ? (
+                      Object.entries(partnersByCategory).map(([category, categoryPartners]) => (
+                        categoryPartners.map((partner) => (
+                          <a
+                            key={partner.id}
+                            href={partner.website_url || '#'}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-foreground hover:text-primary transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {partner.name} - {category}
+                          </a>
+                        ))
+                      ))
+                    ) : (
+                      <span className="text-sm text-muted-foreground">{t('header.noPartners')}</span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Solutions Section */}
+                <div className="py-2">
+                  <p className="font-semibold text-foreground mb-2">{t('header.solutions')}</p>
+                  <div className="flex flex-col gap-2 pl-4">
+                    <a href="#solutions" className="text-sm text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                      {t('header.iotConnectivity')}
+                    </a>
+                    <a href="#solutions" className="text-sm text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                      {t('header.m2mPlatform')}
+                    </a>
+                    <a href="#solutions" className="text-sm text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                      {t('header.deviceManagement')}
+                    </a>
+                    <a href="#solutions" className="text-sm text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                      {t('header.analytics')}
+                    </a>
+                    <a href="#solutions" className="text-sm text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                      {t('header.customSolutions')}
+                    </a>
+                  </div>
+                </div>
+
+                <a 
+                  href="#about" 
+                  className="text-foreground hover:text-primary transition-colors py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t('header.about')}
+                </a>
+                <a 
+                  href="#case-studies" 
+                  className="text-foreground hover:text-primary transition-colors py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t('header.caseStudies')}
+                </a>
+                <a 
+                  href="#contact" 
+                  className="text-foreground hover:text-primary transition-colors py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t('header.contact')}
+                </a>
+
+                {/* Language Toggle */}
+                <div className="flex items-center gap-2 py-4 border-t border-border mt-4">
+                  <Label htmlFor="mobile-language-switch" className="text-sm text-foreground">
+                    EN
+                  </Label>
+                  <Switch
+                    id="mobile-language-switch"
+                    checked={language === 'zh'}
+                    onCheckedChange={(checked) => setLanguage(checked ? 'zh' : 'en')}
+                  />
+                  <Label htmlFor="mobile-language-switch" className="text-sm text-foreground">
+                    中文
+                  </Label>
+                </div>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
