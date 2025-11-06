@@ -2,9 +2,62 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import { toast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
+
+const formSchema = z.object({
+  name: z.string().min(1, { message: "Name is required" }),
+  email: z.string().email({ message: "Invalid email address" }),
+  company: z.string().min(1, { message: "Company name is required" }),
+});
 
 const CTA = () => {
   const { t } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      company: "",
+    },
+  });
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: { 
+          name: values.name,
+          email: values.email,
+          company: values.company,
+        },
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Success!",
+        description: "Your message has been sent successfully.",
+      });
+      form.reset();
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
@@ -28,30 +81,70 @@ const CTA = () => {
 
           {/* Contact form */}
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 max-w-2xl mx-auto">
-            <form className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-4">
-                <Input 
-                  placeholder={t('cta.namePlaceholder')}
-                  className="bg-white/90 border-white/50 text-foreground placeholder:text-muted-foreground"
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input 
+                            placeholder={t('cta.namePlaceholder')}
+                            className="bg-white/90 border-white/50 text-foreground placeholder:text-muted-foreground"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage className="text-white" />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input 
+                            type="email"
+                            placeholder={t('cta.emailPlaceholder')}
+                            className="bg-white/90 border-white/50 text-foreground placeholder:text-muted-foreground"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage className="text-white" />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <FormField
+                  control={form.control}
+                  name="company"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input 
+                          placeholder={t('cta.companyPlaceholder')}
+                          className="bg-white/90 border-white/50 text-foreground placeholder:text-muted-foreground"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage className="text-white" />
+                    </FormItem>
+                  )}
                 />
-                <Input 
-                  type="email"
-                  placeholder={t('cta.emailPlaceholder')}
-                  className="bg-white/90 border-white/50 text-foreground placeholder:text-muted-foreground"
-                />
-              </div>
-              <Input 
-                placeholder={t('cta.companyPlaceholder')}
-                className="bg-white/90 border-white/50 text-foreground placeholder:text-muted-foreground"
-              />
-              <Button 
-                size="lg"
-                className="w-full bg-white text-primary hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300 text-lg"
-              >
-                {t('cta.submitButton')}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </form>
+                <Button 
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="w-full bg-white text-primary hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300 text-lg"
+                >
+                  {isSubmitting ? "Sending..." : t('cta.submitButton')}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </form>
+            </Form>
           </div>
 
           {/* Contact info */}
