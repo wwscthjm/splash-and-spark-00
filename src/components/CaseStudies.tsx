@@ -25,7 +25,7 @@ const CaseStudies = () => {
           icon: Car,
           title: t('caseStudy.ev.shortTitle'),
           industry: t('caseStudy.ev.badge'),
-          metric: "1.2M SIMs • 28 Countries",
+          metric: "180 Countries",
           description: t('caseStudy.ev.subtitle'),
           highlight: "99.95% uptime",
           color: "from-blue-500 to-cyan-500",
