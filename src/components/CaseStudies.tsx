@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Car, Gauge, CreditCard, Heart, Bike } from "lucide-react";
+import {ArrowRight, Car, Gauge, CreditCard, Heart, Bike, SatelliteDish} from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -25,9 +25,9 @@ const CaseStudies = () => {
           icon: Car,
           title: t('caseStudy.ev.shortTitle'),
           industry: t('caseStudy.ev.badge'),
-          metric: "180 Countries",
+          metric: t('caseStudy.ev.metric4'),
           description: t('caseStudy.ev.subtitle'),
-          highlight: "99.95% uptime",
+          highlight: t('caseStudy.ev.highlight'),
           color: "from-blue-500 to-cyan-500",
           link: "/case-study/ev-telematics"
       },
@@ -35,19 +35,19 @@ const CaseStudies = () => {
           icon: Gauge,
           title: t('caseStudy.smartMeter.shortTitle'),
           industry: t('caseStudy.smartMeter.badge'),
-          metric: "800K NB-IoT SIMs • 10-year battery",
+          metric: t('caseStudy.smartMeter.metric4'),
           description: t('caseStudy.smartMeter.subtitle'),
-          highlight: "50% cost reduction",
+          highlight: t('caseStudy.smartMeter.highlight'),
           color: "from-green-500 to-emerald-500",
           link: "/case-study/smart-meter"
       },
       {
-          icon: CreditCard,
+          icon: SatelliteDish,
           title: t('caseStudy.pos.shortTitle'),
           industry: t('caseStudy.pos.badge'),
-          metric: "PCI-DSS • Private APN • <2s auth",
+          metric: t('caseStudy.pos.metric4'),
           description: t('caseStudy.pos.subtitle'),
-          highlight: "100% compliance",
+          highlight: t('caseStudy.pos.highlight'),
           color: "from-purple-500 to-pink-500",
           link: "/case-study/pos-terminal"
       },
@@ -55,9 +55,9 @@ const CaseStudies = () => {
           icon: Heart,
           title: t('caseStudy.medical.shortTitle'),
           industry: t('caseStudy.medical.badge'),
-          metric: "FDA + MIIT dual approval",
+          metric: t('caseStudy.medical.metric4'),
           description: t('caseStudy.medical.subtitle'),
-          highlight: "Regulatory cleared",
+          highlight: t('caseStudy.medical.highlight'),
           color: "from-red-500 to-orange-500",
           link: "/case-study/medical-device"
       },
@@ -65,9 +65,9 @@ const CaseStudies = () => {
           icon: Bike,
           title: t('caseStudy.mobility.shortTitle'),
           industry: t('caseStudy.mobility.badge'),
-          metric: "30M messages/month",
+          metric: t('caseStudy.mobility.metric4'),
           description: t('caseStudy.mobility.subtitle'),
-          highlight: "48hr deployment",
+          highlight: t('caseStudy.mobility.highlight'),
           color: "from-indigo-500 to-blue-500",
           link: "/case-study/shared-mobility"
       }];
@@ -77,10 +77,10 @@ const CaseStudies = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Customer Success Stories
+            {t('caseStudy.title')}
           </h2>
           <p className="text-lg text-muted-foreground">
-            See how leading companies trust ISL for their global IoT deployments
+            {t('caseStudy.subtitle')}
           </p>
         </div>
 
