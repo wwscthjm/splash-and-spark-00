@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CaseStudyEV from "./pages/CaseStudyEV";
 import CaseStudySmartMeter from "./pages/CaseStudySmartMeter";
-import CaseStudyPOS from "./pages/CaseStudyPOS";
+import CaseStudyGPS from "./pages/CaseStudyGPS.tsx";
 import CaseStudyMedical from "./pages/CaseStudyMedical";
 import CaseStudyMobility from "./pages/CaseStudyMobility";
 
@@ -25,7 +25,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/case-study/ev-telematics" element={<CaseStudyEV />} />
             <Route path="/case-study/smart-meter" element={<CaseStudySmartMeter />} />
-            <Route path="/case-study/pos-terminal" element={<CaseStudyPOS />} />
+            <Route path="/case-study/GPS-terminal" element={<CaseStudyGPS />} />
             <Route path="/case-study/medical-device" element={<CaseStudyMedical />} />
             <Route path="/case-study/shared-mobility" element={<CaseStudyMobility />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

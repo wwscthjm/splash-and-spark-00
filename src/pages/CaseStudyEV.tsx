@@ -46,22 +46,16 @@ const CaseStudyEV = () => {
             </p>
 
             {/* Key Metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               <Card>
                 <CardContent className="p-6 text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">1.2M</div>
-                  <div className="text-muted-foreground">{t('caseStudy.ev.metric1')}</div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-6 text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">28</div>
+                  <div className="text-3xl font-bold text-primary mb-2">100+</div>
                   <div className="text-muted-foreground">{t('caseStudy.ev.metric2')}</div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6 text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">99.95%</div>
+                  <div className="text-3xl font-bold text-primary mb-2">99%</div>
                   <div className="text-muted-foreground">{t('caseStudy.ev.metric3')}</div>
                 </CardContent>
               </Card>
