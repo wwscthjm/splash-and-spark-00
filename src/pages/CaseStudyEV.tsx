@@ -188,10 +188,18 @@ const CaseStudyEV = () => {
                 <p className="text-white/90 mb-6">
                   {t('caseStudy.ev.ctaDesc')}
                 </p>
-                <Button 
+                <Button
                   size="lg"
                   variant="secondary"
-                  onClick={() => navigate('/#contact')}
+                  onClick={() => {
+                    navigate('/#contact');
+                    setTimeout(() => {
+                      const contactElement = document.getElementById('contact');
+                      if (contactElement) {
+                        contactElement.scrollIntoView({ behavior: 'instant' }); // "auto" | "instant" | "smooth"
+                      }
+                    }, 50);
+                  }}
                   className="bg-white text-primary hover:bg-white/90"
                 >
                   {t('caseStudy.contactUs')}

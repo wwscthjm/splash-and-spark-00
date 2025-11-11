@@ -188,6 +188,7 @@ const enTranslations = {
     ourSolution: 'Our Solution',
     results: 'Results',
     contactUs: 'Contact Us',
+    readMore: 'Read Story',
     ev: {
       badge: 'Automotive',
       title: 'EV Telematics Success Story',
