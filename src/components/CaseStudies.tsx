@@ -131,7 +131,7 @@ const CaseStudies = () => {
                         size="sm"
                         className="text-primary hover:text-primary group-hover:translate-x-1 transition-transform"
                       >
-                        Read Story
+                        {t('caseStudy.readMore')}
                         <ArrowRight className="w-4 h-4 ml-1" />
                       </Button>
                     </Link>

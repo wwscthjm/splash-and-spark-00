@@ -8,9 +8,10 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CaseStudyEV from "./pages/CaseStudyEV";
 import CaseStudySmartMeter from "./pages/CaseStudySmartMeter";
-import CaseStudyGPS from "./pages/CaseStudyGPS.tsx";
+import CaseStudyGPS from "./pages/CaseStudyGPS";
 import CaseStudyMedical from "./pages/CaseStudyMedical";
 import CaseStudyMobility from "./pages/CaseStudyMobility";
+import ScrollToTop from "./components/ScrollToTop"
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/case-study/ev-telematics" element={<CaseStudyEV />} />

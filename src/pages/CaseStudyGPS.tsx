@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, CreditCard, Shield, Zap, Lock } from "lucide-react";
+import { ArrowLeft, SatelliteDish, Shield, Zap, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -29,7 +29,7 @@ const CaseStudyGPS = () => {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                <CreditCard className="w-8 h-8 text-white" />
+                <SatelliteDish className="w-8 h-8 text-white" />
               </div>
               <div>
                 <Badge className="mb-2">{t('caseStudy.GPS.badge')}</Badge>
@@ -187,11 +187,19 @@ const CaseStudyGPS = () => {
                 <p className="text-white/90 mb-6">
                   {t('caseStudy.GPS.ctaDesc')}
                 </p>
-                <Button 
+                <Button
                   size="lg"
                   variant="secondary"
-                  onClick={() => navigate('/#contact')}
-                  className="bg-white text-primary hover:bg-white/90"
+                  onClick={() => {
+                    navigate('/#contact');
+                    setTimeout(() => {
+                      const contactElement = document.getElementById('contact');
+                      if (contactElement) {
+                        contactElement.scrollIntoView({ behavior: 'instant' }); // "auto" | "instant" | "smooth"
+                      }
+                    }, 50);
+                  }}
+                    className="bg-white text-primary hover:bg-white/90"
                 >
                   {t('caseStudy.contactUs')}
                 </Button>
