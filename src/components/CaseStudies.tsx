@@ -43,34 +43,35 @@ const CaseStudies = () => {
       },
       {
           icon: SatelliteDish,
-          title: t('caseStudy.pos.shortTitle'),
-          industry: t('caseStudy.pos.badge'),
-          metric: t('caseStudy.pos.metric4'),
-          description: t('caseStudy.pos.subtitle'),
-          highlight: t('caseStudy.pos.highlight'),
+          title: t('caseStudy.GPS.shortTitle'),
+          industry: t('caseStudy.GPS.badge'),
+          metric: t('caseStudy.GPS.metric4'),
+          description: t('caseStudy.GPS.subtitle'),
+          highlight: t('caseStudy.GPS.highlight'),
           color: "from-purple-500 to-pink-500",
-          link: "/case-study/pos-terminal"
+          link: "/case-study/GPS-terminal"
       },
-      {
-          icon: Heart,
-          title: t('caseStudy.medical.shortTitle'),
-          industry: t('caseStudy.medical.badge'),
-          metric: t('caseStudy.medical.metric4'),
-          description: t('caseStudy.medical.subtitle'),
-          highlight: t('caseStudy.medical.highlight'),
-          color: "from-red-500 to-orange-500",
-          link: "/case-study/medical-device"
-      },
-      {
-          icon: Bike,
-          title: t('caseStudy.mobility.shortTitle'),
-          industry: t('caseStudy.mobility.badge'),
-          metric: t('caseStudy.mobility.metric4'),
-          description: t('caseStudy.mobility.subtitle'),
-          highlight: t('caseStudy.mobility.highlight'),
-          color: "from-indigo-500 to-blue-500",
-          link: "/case-study/shared-mobility"
-      }];
+      // {
+      //     icon: Heart,
+      //     title: t('caseStudy.medical.shortTitle'),
+      //     industry: t('caseStudy.medical.badge'),
+      //     metric: t('caseStudy.medical.metric4'),
+      //     description: t('caseStudy.medical.subtitle'),
+      //     highlight: t('caseStudy.medical.highlight'),
+      //     color: "from-red-500 to-orange-500",
+      //     link: "/case-study/medical-device"
+      // },
+      // {
+      //     icon: Bike,
+      //     title: t('caseStudy.mobility.shortTitle'),
+      //     industry: t('caseStudy.mobility.badge'),
+      //     metric: t('caseStudy.mobility.metric4'),
+      //     description: t('caseStudy.mobility.subtitle'),
+      //     highlight: t('caseStudy.mobility.highlight'),
+      //     color: "from-indigo-500 to-blue-500",
+      //     link: "/case-study/shared-mobility"
+      // }
+      ];
 
   return (
     <section id="case-studies" className="py-24 bg-muted/30">
@@ -157,7 +158,7 @@ const CaseStudies = () => {
               className="flex animate-scroll-left gap-16 whitespace-nowrap"
               style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
             >
-              {["AWS", "Airtel", "Tele2", "TATA", "ZEEKR", "LEAPMOTOR", "YUTONG", "SMART"].map((logo, index) => (
+              {["AWS", "Airtel", "Tele2", "ZEEKR", "LEAPMOTOR", "SMART"].map((logo, index) => (
                 <a
                   key={index}
                   href={logoLinks[logo]}
@@ -169,7 +170,7 @@ const CaseStudies = () => {
                 </a>
               ))}
               {/* Duplicate for seamless loop */}
-              {["AWS", "Airtel", "Tele2", "TATA", "ZEEKR", "LEAPMOTOR", "YUTONG", "SMART"].map((logo, index) => (
+              {["AWS", "Airtel", "Tele2", "ZEEKR", "LEAPMOTOR", "SMART"].map((logo, index) => (
                 <a
                   key={`dup-${index}`}
                   href={logoLinks[logo]}
